@@ -1,110 +1,267 @@
-[MAXIMUM-landing-spec.md](https://github.com/user-attachments/files/35246967/MAXIMUM-landing-spec.md)
-# maximum
-maximum
-[Uploading MAXIMUM-landing-spec.md…]()
-# MAXIMUM — Landing Page Spec
+[index.html](https://github.com/user-attachments/files/35246980/index.html)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAXIMUM — Turnkey sedation &amp; anesthesia for dental clinics</title>
+<meta name="description" content="MAXIMUM manages turnkey sedation and anesthesia for leading dental clinics across Canada.">
+<meta name="theme-color" content="#111111">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* ---- Tokens ---- */
+  :root {
+    --bg: #111111;
+    --text: #FFFFFF;
+    --muted: #8E8E88;
+    --hairline: rgba(237,237,232,0.12);
+    --btn-border: 0.5px solid rgba(237,237,232,0.45);
+    --underline: rgba(237,237,232,.6);
+    --radius: 2px;
+    --pad-x: 64px;
+    --font: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
 
-A single-screen landing page for MAXIMUM, a company that manages turnkey sedation and anesthesia for dental clinics. On desktop the page fits in one viewport (100vh) and does not scroll.
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
 
-Reference mockups: `MAXIMUM Landing.dc.html`. 3a and 3b are the base desktop and mobile designs. 4a is 3a with a gradient background, and 4b is 3a with a gradient on the navigation bar only.
+  /* ---- Variant 4a: gradient background (add class="bg-gradient" to <body>) ---- */
+  body.bg-gradient {
+    background:
+      repeating-linear-gradient(180deg, rgba(237,237,232,.022) 0 1px, transparent 1px 4px),
+      linear-gradient(180deg, #2B2B2A 0%, #1C1C1C 28%, #111 60%, #0A0A0A 100%);
+  }
+  body.bg-gradient .btn { background: transparent; }
 
----
+  /* ---- Variant 4b: gradient nav only (add class="nav-gradient" to <body>) ---- */
+  body.nav-gradient .topbar {
+    background: linear-gradient(180deg, #3B3B3A 0%, #222221 45%, #111 100%);
+    box-shadow: inset 0 1px 0 rgba(237,237,232,.12);
+  }
 
-## Content
+  /* ---- Top bar ---- */
+  .topbar {
+    position: relative;
+    flex: 0 0 76px;
+    height: 76px;
+    padding: 0 var(--pad-x);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .logo { display: flex; align-items: center; height: 26px; }
+  .logo img { height: 26px; width: auto; display: block; }
+  .logo .wordmark {
+    display: none;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.18em;
+  }
+  .logo.no-img img { display: none; }
+  .logo.no-img .wordmark { display: inline; }
 
-**Navigation:** Trust · Services · Patient Benefit · Company
+  .nav { display: flex; gap: 28px; }
+  .nav a { font-size: 14px; color: var(--text); transition: opacity .15s; }
+  .nav a:hover { opacity: .65; }
 
-**Headline**
-> We manage turnkey <u>sedation</u> and <u>anesthesia</u> for leading dental clinics across Canada.
+  .menu-btn {
+    display: none;
+    width: 44px; height: 44px;
+    margin-right: -12px;
+    background: none; border: 0; cursor: pointer;
+    flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  }
+  .menu-btn span { display: block; width: 20px; height: 1px; background: var(--text); transition: transform .2s; }
+  .menu-btn[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
+  .menu-btn[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
 
-Only "sedation" and "anesthesia" are underlined. "and" is not.
+  /* ---- Hero ---- */
+  .hero {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 0 var(--pad-x);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  h1 {
+    font-size: 52px;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    max-width: 820px;
+    text-wrap: balance;
+  }
+  h1 u {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.14em;
+    text-decoration-color: var(--underline);
+  }
+  .ctas { display: flex; gap: 10px; margin-top: 40px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 40px;
+    padding: 0 22px;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    border: var(--btn-border);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--text);
+    transition: background .15s, border-color .15s;
+  }
+  .btn:hover { background: rgba(237,237,232,0.06); border-color: rgba(237,237,232,0.7); }
 
-**Buttons**
-- For Doctors
-- For Dental Clinics
+  /* ---- Partner strip ---- */
+  .partners { flex: 0 0 auto; padding: 28px var(--pad-x); }
+  .partners-label { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+  .marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .track {
+    display: flex;
+    width: max-content;
+    animation: mxMarquee 40s linear infinite;
+  }
+  .set { display: flex; gap: 64px; padding-right: 64px; }
+  .tile {
+    width: 150px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    flex: 0 0 auto;
+  }
+  .tile img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+  /* Empty slot until real logos are supplied */
+  .tile.empty { border: 1px solid var(--hairline); border-radius: var(--radius); }
+  @keyframes mxMarquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+  @media (prefers-reduced-motion: reduce) { .track { animation-play-state: paused; } }
 
-**Logo strip label:** Partner clinics
+  /* ---- Footer ---- */
+  footer {
+    flex: 0 0 60px;
+    height: 60px;
+    padding: 0 var(--pad-x);
+    display: flex; align-items: center;
+    border-top: 1px solid var(--hairline);
+    font-size: 12px;
+    color: var(--muted);
+  }
 
-**Footer:** © 2026 Maximum Dental Corporation
+  /* ---- Mobile ---- */
+  @media (max-width: 767px) {
+    :root { --pad-x: 20px; }
+    body { height: auto; min-height: 100svh; overflow: auto; }
+    .topbar { flex-basis: 64px; height: 64px; }
+    .logo, .logo img { height: 20px; }
+    .logo .wordmark { font-size: 15px; }
+    .menu-btn { display: flex; }
+    .nav {
+      display: none;
+      position: absolute; top: 64px; left: 0; right: 0; z-index: 10;
+      flex-direction: column; gap: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--hairline);
+      padding: 8px var(--pad-x) 16px;
+    }
+    .nav.open { display: flex; }
+    .nav a { font-size: 16px; padding: 12px 0; }
+    .hero { padding-top: 56px; padding-bottom: 56px; }
+    h1 { font-size: 32px; line-height: 1.1; }
+    .ctas { width: 100%; }
+    .btn { flex: 1; height: 44px; padding: 0 12px; }
+    .partners-label { font-size: 12px; }
+    .track { animation-duration: 30s; }
+    .set { gap: 32px; padding-right: 32px; }
+    .tile { width: 110px; height: 36px; }
+    footer { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+<!-- Variants: <body class="bg-gradient"> = 4a, <body class="nav-gradient"> = 4b -->
 
----
+  <header class="topbar">
+    <a href="./" class="logo" id="logo" aria-label="MAXIMUM home">
+      <img src="assets/maximum-logo-white.png" alt="MAXIMUM" onerror="this.parentElement.classList.add('no-img')">
+      <span class="wordmark">MAXIMUM</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#">Trust</a>
+      <a href="#">Services</a>
+      <a href="#">Patient Benefit</a>
+      <a href="#">Company</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span>
+    </button>
+  </header>
 
-## Design tokens
+  <main class="hero">
+    <h1>We manage turnkey <u>sedation</u> and <u>anesthesia</u> for leading dental clinics across Canada.</h1>
+    <div class="ctas">
+      <a class="btn" href="#">For Doctors</a>
+      <a class="btn" href="#">For Dental Clinics</a>
+    </div>
+  </main>
 
-| Token | Value |
-|---|---|
-| Background | `#111111` |
-| Primary text | `#FFFFFF` |
-| Secondary text | `#8E8E88` (≈ 6:1 on #111) |
-| Hairline | `rgba(237,237,232,0.12)` |
-| Button border | `0.5px solid rgba(237,237,232,0.45)` |
-| Font | DM Sans (Google Fonts), weights 400 / 500 / 700 |
-| Corner radius (buttons) | `2px` |
+  <section class="partners" aria-label="Partner clinics">
+    <p class="partners-label">Partner clinics</p>
+    <div class="marquee">
+      <div class="track">
+        <!-- Replace each empty tile with: <div class="tile"><img src="assets/partners/name.png" alt="Clinic name"></div> -->
+        <div class="set">
+          <div class="tile empty"></div>
+          <div class="tile empty"></div>
+          <div class="tile empty"></div>
+          <div class="tile empty"></div>
+          <div class="tile empty"></div>
+          <div class="tile empty"></div>
+          <div class="tile empty"></div>
+          <div class="tile empty"></div>
+        </div>
+        <!-- Duplicate set for seamless loop — keep identical to the first -->
+        <div class="set" aria-hidden="true">
+          <div class="tile empty"></div>
+          <div class="tile empty"></div>
+          <div class="tile empty"></div>
+          <div class="tile empty"></div>
+          <div class="tile empty"></div>
+          <div class="tile empty"></div>
+          <div class="tile empty"></div>
+          <div class="tile empty"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-DM Sans stands in for Styrene B, the font Anthropic uses, which requires a paid licence. If MAXIMUM buys a Styrene licence, swap the font family and keep every other value the same.
+  <footer>© 2026 Maximum Dental Corporation</footer>
 
-### Background variant (4a)
-```css
-background:
-  repeating-linear-gradient(180deg, rgba(237,237,232,.022) 0 1px, transparent 1px 4px),
-  linear-gradient(180deg, #2B2B2A 0%, #1C1C1C 28%, #111 60%, #0A0A0A 100%);
-```
-The background is grey at the top and fades to black, with faint scanlines. Buttons use a `transparent` background in this variant.
-
-### Navigation-only variant (4b)
-```css
-background: linear-gradient(180deg, #3B3B3A 0%, #222221 45%, #111 100%);
-box-shadow: inset 0 1px 0 rgba(237,237,232,.12);
-```
-
----
-
-## Layout — desktop (designed at 1440 × 900)
-
-Column, full viewport height. Horizontal padding `64px`.
-
-1. **Top bar**: 76px tall, with a 1px hairline below.
-   - Left: logo image (`assets/maximum-logo-white.png`), 26px tall.
-   - Right: nav links, 14px, white, 28px gap.
-2. **Hero**: fills the remaining space, with content vertically centred and left-aligned to the logo.
-   - Headline: 52px, weight 500, line-height 1.08, letter-spacing −0.03em, max-width 820px, `text-wrap: balance`.
-   - Underline: 1px thick, offset 0.14em, colour `rgba(237,237,232,.6)`.
-   - Buttons: 40px below the headline, 10px apart. Each is 40px tall with 0 22px padding, 14px text, 0.01em letter-spacing, the button border above, and a 2px radius.
-3. **Partner clinics strip**: padding 28px 64px.
-   - Label: 13px, secondary grey, 18px below.
-   - Infinite horizontal marquee of logo tiles 150 × 44px with a 64px gap. One loop takes 40s and runs linearly. The edges fade with `mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)`.
-4. **Footer**: 60px tall, with a 1px hairline above. 12px text in secondary grey.
-
-## Layout — mobile (designed at 390 × 844)
-
-Horizontal padding is `20px`. The page may scroll if the content doesn't fit.
-
-- Top bar: 64px tall, with the logo 20px tall. The nav collapses into a menu icon (two 20px × 1px white lines, 44px tap target).
-- Headline: 32px, weight 500, line-height 1.1.
-- Buttons: side by side, each `flex: 1`, 44px tall.
-- Logo strip: tiles 110 × 36px with a 32px gap, one loop every 30s. The label is 12px.
-- Footer: 11px.
-
----
-
-## Marquee implementation
-
-```css
-@keyframes mxMarquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
-```
-The track is `display:flex; width:max-content; animation: mxMarquee 40s linear infinite`. It contains two identical sets of logos, and the second set has `aria-hidden="true"` so screen readers skip it. Honour `prefers-reduced-motion` by pausing the animation.
-
----
-
-## Assets
-
-- `assets/maximum-logo-white.png`: white wordmark on a transparent background.
-- Partner clinic logos: **to be supplied**. Use white or single-colour versions. Don't use placeholder or invented logos in production.
-
-## To do
-
-- Supply the real partner clinic logos.
-- Set the link targets for Trust, Services, Patient Benefit and Company, and build those pages.
-- Set the link targets for the For Doctors and For Dental Clinics buttons.
-- Design the open state of the mobile menu.
-- Optional: a subtle fade-in of the headline on page load.
+<script>
+  const btn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('open', !open);
+  });
+</script>
+</body>
+</html>
