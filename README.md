@@ -1,217 +1,92 @@
-[index.html](https://github.com/user-attachments/files/35246980/index.html)
+[index.html](https://github.com/user-attachments/files/35247047/index.html)
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MAXIMUM — Turnkey sedation &amp; anesthesia for dental clinics</title>
-<meta name="description" content="MAXIMUM manages turnkey sedation and anesthesia for leading dental clinics across Canada.">
-<meta name="theme-color" content="#111111">
+<title>MAXIMUM — Turnkey sedation and anesthesia for dental clinics</title>
+<meta name="description" content="We manage turnkey sedation and anesthesia for leading dental clinics across Canada.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 <style>
-  /* ---- Tokens ---- */
-  :root {
-    --bg: #111111;
-    --text: #FFFFFF;
-    --muted: #8E8E88;
-    --hairline: rgba(237,237,232,0.12);
-    --btn-border: 0.5px solid rgba(237,237,232,0.45);
-    --underline: rgba(237,237,232,.6);
-    --radius: 2px;
-    --pad-x: 64px;
-    --font: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: 100%; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
   body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font);
-    -webkit-font-smoothing: antialiased;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    height: 100svh;
-    overflow: hidden;
-  }
-  a { color: inherit; text-decoration: none; }
-
-  /* ---- Variant 4a: gradient background (add class="bg-gradient" to <body>) ---- */
-  body.bg-gradient {
-    background:
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #fff;
+    background-color: #0A0A0A;
+    background-image:
       repeating-linear-gradient(180deg, rgba(237,237,232,.022) 0 1px, transparent 1px 4px),
       linear-gradient(180deg, #2B2B2A 0%, #1C1C1C 28%, #111 60%, #0A0A0A 100%);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
   }
-  body.bg-gradient .btn { background: transparent; }
+  a { color: #fff; text-decoration: none; }
+  a:hover { color: #8E8E88; }
 
-  /* ---- Variant 4b: gradient nav only (add class="nav-gradient" to <body>) ---- */
-  body.nav-gradient .topbar {
-    background: linear-gradient(180deg, #3B3B3A 0%, #222221 45%, #111 100%);
-    box-shadow: inset 0 1px 0 rgba(237,237,232,.12);
-  }
+  .page { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
 
-  /* ---- Top bar ---- */
-  .topbar {
-    position: relative;
-    flex: 0 0 76px;
-    height: 76px;
-    padding: 0 var(--pad-x);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--hairline);
-  }
-  .logo { display: flex; align-items: center; height: 26px; }
+  .bar { height: 76px; padding: 0 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(237,237,232,.12); }
+  .logo { display: flex; }
   .logo img { height: 26px; width: auto; display: block; }
-  .logo .wordmark {
-    display: none;
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: 0.18em;
-  }
-  .logo.no-img img { display: none; }
-  .logo.no-img .wordmark { display: inline; }
+  .nav { display: flex; gap: 28px; font-size: 14px; }
+  .menu-btn { display: none; width: 44px; height: 44px; padding: 0; background: none; border: 0; cursor: pointer; flex-direction: column; align-items: flex-end; justify-content: center; gap: 6px; }
+  .menu-btn span { width: 20px; height: 1px; background: #fff; display: block; transition: transform .2s; }
 
-  .nav { display: flex; gap: 28px; }
-  .nav a { font-size: 14px; color: var(--text); transition: opacity .15s; }
-  .nav a:hover { opacity: .65; }
+  .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 56px 64px 60px; }
+  h1 { margin: 0; font-weight: 500; font-size: 52px; line-height: 1.08; letter-spacing: -0.03em; max-width: 820px; text-wrap: balance; }
+  h1 u { text-decoration-thickness: 1px; text-underline-offset: 0.14em; text-decoration-color: rgba(237,237,232,.6); }
+  .ctas { margin-top: 40px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { height: 40px; padding: 0 22px; border-radius: 2px; border: 0.5px solid rgba(237,237,232,.45); background: transparent; color: #fff; font-size: 14px; letter-spacing: .01em; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; transition: border-color .2s, background .2s; }
+  .btn:hover { color: #fff; border-color: rgba(237,237,232,.9); background: rgba(237,237,232,.04); }
 
-  .menu-btn {
-    display: none;
-    width: 44px; height: 44px;
-    margin-right: -12px;
-    background: none; border: 0; cursor: pointer;
-    flex-direction: column; align-items: center; justify-content: center; gap: 6px;
-  }
-  .menu-btn span { display: block; width: 20px; height: 1px; background: var(--text); transition: transform .2s; }
-  .menu-btn[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
-  .menu-btn[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
-
-  /* ---- Hero ---- */
-  .hero {
-    flex: 1 1 auto;
-    min-height: 0;
-    padding: 0 var(--pad-x);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  h1 {
-    font-size: 52px;
-    font-weight: 500;
-    line-height: 1.08;
-    letter-spacing: -0.03em;
-    max-width: 820px;
-    text-wrap: balance;
-  }
-  h1 u {
-    text-decoration-line: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.14em;
-    text-decoration-color: var(--underline);
-  }
-  .ctas { display: flex; gap: 10px; margin-top: 40px; }
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    height: 40px;
-    padding: 0 22px;
-    font-size: 14px;
-    letter-spacing: 0.01em;
-    border: var(--btn-border);
-    border-radius: var(--radius);
-    background: var(--bg);
-    color: var(--text);
-    transition: background .15s, border-color .15s;
-  }
-  .btn:hover { background: rgba(237,237,232,0.06); border-color: rgba(237,237,232,0.7); }
-
-  /* ---- Partner strip ---- */
-  .partners { flex: 0 0 auto; padding: 28px var(--pad-x); }
-  .partners-label { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
-  .marquee {
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-  }
-  .track {
-    display: flex;
-    width: max-content;
-    animation: mxMarquee 40s linear infinite;
-  }
+  .partners { padding: 28px 64px; }
+  .partners-label { font-size: 13px; color: #8E8E88; margin-bottom: 18px; }
+  .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+  .track { display: flex; width: max-content; animation: mx-marquee 40s linear infinite; }
   .set { display: flex; gap: 64px; padding-right: 64px; }
-  .tile {
-    width: 150px; height: 44px;
-    display: flex; align-items: center; justify-content: center;
-    flex: 0 0 auto;
-  }
-  .tile img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
-  /* Empty slot until real logos are supplied */
-  .tile.empty { border: 1px solid var(--hairline); border-radius: var(--radius); }
-  @keyframes mxMarquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
-  @media (prefers-reduced-motion: reduce) { .track { animation-play-state: paused; } }
+  .tile { flex: none; width: 150px; height: 44px; display: flex; align-items: center; justify-content: center; }
+  .tile img { max-width: 100%; max-height: 100%; display: block; }
+  .tile.placeholder { border: 0.5px dashed rgba(237,237,232,.28); border-radius: 2px; font-size: 12px; color: #8E8E88; letter-spacing: .04em; }
+  @keyframes mx-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .track { animation: none; } }
 
-  /* ---- Footer ---- */
-  footer {
-    flex: 0 0 60px;
-    height: 60px;
-    padding: 0 var(--pad-x);
-    display: flex; align-items: center;
-    border-top: 1px solid var(--hairline);
-    font-size: 12px;
-    color: var(--muted);
-  }
+  footer { height: 60px; padding: 0 64px; display: flex; align-items: center; border-top: 1px solid rgba(237,237,232,.12); font-size: 12px; color: #8E8E88; }
 
-  /* ---- Mobile ---- */
-  @media (max-width: 767px) {
-    :root { --pad-x: 20px; }
-    body { height: auto; min-height: 100svh; overflow: auto; }
-    .topbar { flex-basis: 64px; height: 64px; }
-    .logo, .logo img { height: 20px; }
-    .logo .wordmark { font-size: 15px; }
+  @media (max-width: 760px) {
+    .bar { height: 64px; padding: 0 20px; position: relative; }
+    .logo img { height: 20px; }
     .menu-btn { display: flex; }
-    .nav {
-      display: none;
-      position: absolute; top: 64px; left: 0; right: 0; z-index: 10;
-      flex-direction: column; gap: 0;
-      background: var(--bg);
-      border-bottom: 1px solid var(--hairline);
-      padding: 8px var(--pad-x) 16px;
-    }
-    .nav.open { display: flex; }
-    .nav a { font-size: 16px; padding: 12px 0; }
-    .hero { padding-top: 56px; padding-bottom: 56px; }
+    .nav { display: none; position: absolute; top: 64px; left: 0; right: 0; z-index: 10; flex-direction: column; gap: 0; padding: 8px 20px 20px; background: #111; border-bottom: 1px solid rgba(237,237,232,.12); font-size: 22px; letter-spacing: -0.02em; }
+    .nav a { padding: 12px 0; }
+    .bar.open .nav { display: flex; }
+    .bar.open .menu-btn span:first-child { transform: translateY(3.5px) rotate(45deg); }
+    .bar.open .menu-btn span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+    .hero { padding: 48px 20px 40px; }
     h1 { font-size: 32px; line-height: 1.1; }
-    .ctas { width: 100%; }
+    .ctas { margin-top: 28px; }
     .btn { flex: 1; height: 44px; padding: 0 12px; }
-    .partners-label { font-size: 12px; }
+    .partners { padding: 20px 0; }
+    .partners-label { font-size: 12px; margin: 0 20px 14px; }
     .track { animation-duration: 30s; }
     .set { gap: 32px; padding-right: 32px; }
     .tile { width: 110px; height: 36px; }
-    footer { font-size: 11px; }
+    footer { height: auto; padding: 18px 20px 22px; font-size: 11px; }
   }
 </style>
 </head>
 <body>
-<!-- Variants: <body class="bg-gradient"> = 4a, <body class="nav-gradient"> = 4b -->
-
-  <header class="topbar">
-    <a href="./" class="logo" id="logo" aria-label="MAXIMUM home">
-      <img src="assets/maximum-logo-white.png" alt="MAXIMUM" onerror="this.parentElement.classList.add('no-img')">
-      <span class="wordmark">MAXIMUM</span>
-    </a>
-    <nav class="nav" id="nav" aria-label="Main">
-      <a href="#">Trust</a>
-      <a href="#">Services</a>
-      <a href="#">Patient Benefit</a>
-      <a href="#">Company</a>
+<div class="page">
+  <header class="bar" id="bar">
+    <a class="logo" href="/"><img src="assets/maximum-logo-white.png" alt="MAXIMUM"></a>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav" onclick="var b=document.getElementById('bar');var o=b.classList.toggle('open');this.setAttribute('aria-expanded',o)"><span></span><span></span></button>
+    <nav class="nav" id="nav">
+      <a href="/trust">Trust</a>
+      <a href="/services">Services</a>
+      <a href="/patient-benefit">Patient Benefit</a>
+      <a href="/company">Company</a>
     </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span>
-    </button>
   </header>
 
   <main class="hero">
@@ -223,45 +98,23 @@
   </main>
 
   <section class="partners" aria-label="Partner clinics">
-    <p class="partners-label">Partner clinics</p>
+    <div class="partners-label">Partner clinics</div>
     <div class="marquee">
       <div class="track">
-        <!-- Replace each empty tile with: <div class="tile"><img src="assets/partners/name.png" alt="Clinic name"></div> -->
+        <!-- Replace each placeholder with: <div class="tile"><img src="assets/partners/name.svg" alt="Clinic name"></div> -->
         <div class="set">
-          <div class="tile empty"></div>
-          <div class="tile empty"></div>
-          <div class="tile empty"></div>
-          <div class="tile empty"></div>
-          <div class="tile empty"></div>
-          <div class="tile empty"></div>
-          <div class="tile empty"></div>
-          <div class="tile empty"></div>
+          <div class="tile placeholder">Logo</div><div class="tile placeholder">Logo</div><div class="tile placeholder">Logo</div>
+          <div class="tile placeholder">Logo</div><div class="tile placeholder">Logo</div><div class="tile placeholder">Logo</div>
         </div>
-        <!-- Duplicate set for seamless loop — keep identical to the first -->
         <div class="set" aria-hidden="true">
-          <div class="tile empty"></div>
-          <div class="tile empty"></div>
-          <div class="tile empty"></div>
-          <div class="tile empty"></div>
-          <div class="tile empty"></div>
-          <div class="tile empty"></div>
-          <div class="tile empty"></div>
-          <div class="tile empty"></div>
+          <div class="tile placeholder">Logo</div><div class="tile placeholder">Logo</div><div class="tile placeholder">Logo</div>
+          <div class="tile placeholder">Logo</div><div class="tile placeholder">Logo</div><div class="tile placeholder">Logo</div>
         </div>
       </div>
     </div>
   </section>
 
   <footer>© 2026 Maximum Dental Corporation</footer>
-
-<script>
-  const btn = document.getElementById('menuBtn');
-  const nav = document.getElementById('nav');
-  btn.addEventListener('click', () => {
-    const open = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!open));
-    nav.classList.toggle('open', !open);
-  });
-</script>
+</div>
 </body>
 </html>
